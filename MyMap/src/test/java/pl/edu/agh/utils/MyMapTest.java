@@ -98,51 +98,31 @@ class MyMapTest {
 
     @Test
     void containsKey() {
-
+        assertTrue(filledMap.containsKey("FDsdfDFH42SD"));
+        assertTrue(filledMap.containsKey("VCXdfdsDFS34"));
     }
 
     @Test
     void containsValue() {
-
+        assertTrue(filledMap.containsValue(new Person("Elon", "Musk", 52)));
     }
 
     @Test
     void get() {
-
+        var val = filledMap.get("VCXdfdsDFS34");
+        assertTrue(val.equals(new Person("Mark", "Zuckerberg", 39)));
     }
 
     @Test
     void put() {
+        filledMap.put("SDsadsa@#Sd", new Person("Bill", "Gates", 68));
 
+        assertTrue(filledMap.containsKey("SDsadsa@#Sd"));
     }
 
     @Test
     void remove() {
-
-    }
-
-    @Test
-    void putAll() {
-
-    }
-
-    @Test
-    void clear() {
-
-    }
-
-    @Test
-    void keySet() {
-
-    }
-
-    @Test
-    void values() {
-
-    }
-
-    @Test
-    void entrySet() {
-
+        filledMap.remove("VCXdfdsDFS34");
+        assertFalse(filledMap.containsKey("VCXdfdsDFS34"));
     }
 }

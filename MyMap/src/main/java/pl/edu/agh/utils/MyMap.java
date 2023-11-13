@@ -32,10 +32,10 @@ public class MyMap<K, V> implements Map<K, V> {
 
         entries = buildHashTable(newCapacity);
 
+        capacity = newCapacity;
+
         entriesToPut.forEach(
                 entry -> put(entry.getKey(), entry.getValue()));
-
-        capacity = newCapacity;
     }
 
     private void resizeIfThresholdReached() {
@@ -45,7 +45,7 @@ public class MyMap<K, V> implements Map<K, V> {
     }
 
     private int findKeyIndex(Object key) {
-        return key.hashCode() % entries.size();
+        return Math.abs(key.hashCode()) % entries.size();
     }
 
     private LinkedList<Entry<K, V>> findListForKey(Object key) {
