@@ -6,6 +6,8 @@ public class SaveToFile extends Command {
 
     @Override
     public void execute(Hotel hotel) {
+        hotel.saveToFile();
 
+        System.out.println("Zapisano aktualny stan pokoi do pliku");
     }
 }

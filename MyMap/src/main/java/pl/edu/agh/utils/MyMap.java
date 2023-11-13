@@ -97,7 +97,8 @@ public class MyMap<K, V> implements Map<K, V> {
         var list = findListForKey(key);
 
         findEntry(key, list).ifPresentOrElse(entry -> {
-            entry.setValue(value);
+            list.remove(entry);
+            list.add(Map.entry(key, value));
         }, () -> {
             list.add(Map.entry(key, value));
             entriesCount++;

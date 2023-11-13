@@ -12,6 +12,13 @@ public class Guest {
 
     }
 
+    public Guest(String data) {
+        var fields = data.split(" ");
+        firstName = fields[0];
+        lastName = fields[1];
+        phoneNumber = Integer.parseInt(fields[2]);
+    }
+
     public Guest(String firstName, String lastName, int phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
