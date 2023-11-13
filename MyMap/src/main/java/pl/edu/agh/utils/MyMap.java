@@ -34,6 +34,8 @@ public class MyMap<K, V> implements Map<K, V> {
 
         capacity = newCapacity;
 
+        entriesCount = 0;
+
         entriesToPut.forEach(
                 entry -> put(entry.getKey(), entry.getValue()));
     }
@@ -45,7 +47,7 @@ public class MyMap<K, V> implements Map<K, V> {
     }
 
     private int findKeyIndex(Object key) {
-        return Math.abs(key.hashCode()) % entries.size();
+        return key.hashCode() == Integer.MIN_VALUE ? Integer.MAX_VALUE : Math.abs(key.hashCode()) % entries.size();
     }
 
     private LinkedList<Entry<K, V>> findListForKey(Object key) {

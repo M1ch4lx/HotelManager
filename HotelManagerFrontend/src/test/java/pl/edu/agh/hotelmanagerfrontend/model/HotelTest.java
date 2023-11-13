@@ -66,4 +66,15 @@ class HotelTest {
             hotel.checkOutGuest(101);
         });
     }
+
+    @Test
+    void test() {
+        assertThrows(InvalidParameterException.class, () -> {
+            hotel.loadFromFile();
+        });
+
+        assertThrows(InvalidParameterException.class, () -> {
+            hotel.throwIfRoomNotAvailable(100);
+        });
+    }
 }

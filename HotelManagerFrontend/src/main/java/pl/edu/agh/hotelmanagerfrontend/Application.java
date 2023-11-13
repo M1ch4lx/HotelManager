@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Application {
 
-    private static MyMap<String, Command> createCommands() {
+    public static MyMap<String, Command> createCommands() {
         var commands = new MyMap<String, Command>();
 
         commands.put("list", new ShowRooms());
@@ -29,10 +29,11 @@ public class Application {
         var scanner = new Scanner(System.in);
 
         var hotel = new Hotel();
+        hotel.loadFromFile();
 
         System.out.println("[HotelManager v1]");
 
-        while(true) {
+        while(!Exit.shouldExit()) {
 
             try {
                 var commandName = scanner.next();
